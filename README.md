@@ -5,66 +5,66 @@
 ![Express.js](https://img.shields.io/badge/Express.js-4.x-lightgrey.svg)
 ![MongoDB](https://img.shields.io/badge/MongoDB-Atlas-green.svg)
 
-Blueprint backend yang tangguh dan siap produksi untuk sistem autentikasi modern. Dibangun dengan Node.js, Express, dan MongoDB, proyek ini memiliki arsitektur keamanan berlapis termasuk JWT, verifikasi OTP, proteksi CSRF, dan Kontrol Akses Berbasis Peran (RBAC).
+A robust and production-ready backend blueprint for modern authentication systems. Built with Node.js, Express, and MongoDB, this project features layered security architecture including JWT, OTP verification, CSRF protection, and Role-Based Access Control (RBAC).
 
 ---
 
-## ✅ Fitur yang Sudah Diimplementasikan
+## ✅ Implemented Features
 
-### Onboarding Pengguna yang Aman
-- [x] Registrasi Pengguna dengan pengiriman **OTP (One-Time Password)** via Email
-- [x] Endpoint untuk verifikasi OTP dan aktivasi akun
+### Secure User Onboarding
+- [x] User Registration with **OTP (One-Time Password)** delivery via Email
+- [x] Endpoint for OTP verification and account activation
 
-### Manajemen Sesi & Autentikasi
-- [x] Login Pengguna dengan verifikasi password (`bcryptjs`)
-- [x] Pembuatan **JWT (Access Token)** sebagai sesi
-- [x] Pembuatan **CSRF Token** untuk proteksi tambahan
-- [x] Pengiriman token melalui **`HttpOnly` Cookie** yang aman
-- [x] Logout yang menghancurkan sesi cookie
+### Session Management & Authentication
+- [x] User Login with password verification (`bcryptjs`)
+- [x] **JWT (Access Token)** generation as session
+- [x] **CSRF Token** generation for additional protection
+- [x] Token delivery via secure **`HttpOnly` Cookie**
+- [x] Logout that destroys session cookie
 
-### Keamanan Berlapis
-- [x] **Middleware Proteksi (JWT):** Melindungi route yang memerlukan login
-- [x] **Middleware Proteksi (CSRF):** Melindungi route yang mengubah data (`PUT`, `DELETE`, dll)
-- [x] **Middleware Otorisasi (RBAC):** Melindungi route khusus `admin`
+### Layered Security
+- [x] **Protection Middleware (JWT):** Protects routes requiring login
+- [x] **Protection Middleware (CSRF):** Protects routes that modify data (`PUT`, `DELETE`, etc.)
+- [x] **Authorization Middleware (RBAC):** Protects `admin` specific routes
 
-### Manajemen Akun Pengguna
-- [x] Mendapatkan profil pengguna yang sedang login
-- [x] Mengubah password (memerlukan konfirmasi password lama)
-- [x] Menghapus akun (memerlukan konfirmasi password)
+### User Account Management
+- [x] Get current logged-in user profile
+- [x] Change password (requires old password confirmation)
+- [x] Delete account (requires password confirmation)
 
-### Pemulihan Akun
-- [x] Alur "Lupa Password" lengkap via email
-- [x] Pembuatan token reset yang aman dan berbatas waktu
+### Account Recovery
+- [x] Complete "Forgot Password" flow via email
+- [x] Secure and time-limited reset token generation
 
-### Arsitektur Profesional
-- [x] Struktur respons API ("envelope") yang konsisten untuk semua endpoint
-- [x] Penanganan error yang aman untuk lingkungan produksi
-- [x] Penggunaan variabel lingkungan (`.env`) untuk semua kredensial
-
----
-
-## 🚀 Roadmap & Fitur Mendatang
-
-- [ ] **Integrasi Google OAuth 2.0:** Memungkinkan pengguna untuk mendaftar dan login menggunakan akun Google mereka
-- [ ] **Fungsionalitas "Remember Me":** Mengimplementasikan sesi login yang bertahan lebih lama (misalnya 30 hari) menggunakan *Refresh Token*
-- [ ] **Advanced Logging:** Mengintegrasikan library logging seperti `Winston` atau `Morgan` untuk pemantauan produksi yang lebih baik
-- [ ] **API Rate Limiting:** Mencegah serangan *brute-force* pada endpoint login dan lainnya
+### Professional Architecture
+- [x] Consistent API response structure ("envelope") for all endpoints
+- [x] Safe error handling for production environment
+- [x] Use of environment variables (`.env`) for all credentials
 
 ---
 
-## 🛠️ Tumpukan Teknologi
+## 🚀 Roadmap & Upcoming Features
+
+- [ ] **Google OAuth 2.0 Integration:** Allow users to register and login using their Google accounts
+- [ ] **"Remember Me" Functionality:** Implement longer-lasting login sessions (e.g., 30 days) using *Refresh Tokens*
+- [ ] **Advanced Logging:** Integrate logging libraries like `Winston` or `Morgan` for better production monitoring
+- [ ] **API Rate Limiting:** Prevent *brute-force* attacks on login and other endpoints
+
+---
+
+## 🛠️ Tech Stack
 
 - **Backend:** Node.js, Express.js
-- **Database:** MongoDB dengan Mongoose (dihosting di MongoDB Atlas)
-- **Autentikasi:** JSON Web Token (JWT)
-- **Keamanan:** Bcryptjs, CSRF Protection, Cookie Parser
-- **Pengiriman Email:** Nodemailer, SendGrid
+- **Database:** MongoDB with Mongoose (hosted on MongoDB Atlas)
+- **Authentication:** JSON Web Token (JWT)
+- **Security:** Bcryptjs, CSRF Protection, Cookie Parser
+- **Email Delivery:** Nodemailer, SendGrid
 
 ---
 
-## ⚙️ Variabel Lingkungan (.env)
+## ⚙️ Environment Variables (.env)
 
-Untuk menjalankan proyek ini, Anda perlu membuat file `.env` di root folder `backend` dan mengisi variabel berikut:
+To run this project, you need to create a `.env` file in the `backend` root folder and fill in the following variables:
 
 ```env
 # Server Configuration
@@ -86,47 +86,47 @@ SENDGRID_API_KEY="SG.your_sendgrid_api_key"
 
 ---
 
-## 📦 Instalasi & Setup Lokal
+## 📦 Installation & Local Setup
 
-1. **Clone repositori ini:**
+1. **Clone this repository:**
    ```bash
-   git clone https://github.com/NAMA_USER_ANDA/secure-auth-backend.git
+   git clone https://github.com/YOUR_USERNAME/secure-auth-backend.git
    cd secure-auth-backend
    ```
 
-2. **Instal semua dependencies:**
+2. **Install all dependencies:**
    ```bash
    npm install
    ```
 
-3. **Buat dan isi file `.env`** dengan meniru `.env.example` di atas
+3. **Create and fill the `.env` file** by copying the `.env.example` above
 
-4. **Jalankan server development:**
+4. **Run the development server:**
    ```bash
    npm run dev
    ```
 
-Server akan berjalan di `http://localhost:5000`
+The server will run at `http://localhost:5000`
 
 ---
 
 ## 🔌 API Endpoints
 
-| Method | Endpoint | Deskripsi | Proteksi |
-|--------|----------|-----------|----------|
-| POST | `/api/auth/register` | Mendaftarkan pengguna baru & mengirim OTP | - |
-| POST | `/api/auth/verify-otp` | Memverifikasi OTP & mengaktifkan akun | - |
-| POST | `/api/auth/login` | Login pengguna & membuat sesi cookie | - |
-| POST | `/api/auth/logout` | Logout pengguna & menghapus sesi cookie | - |
-| POST | `/api/auth/forgot-password` | Mengirim email reset password | - |
-| POST | `/api/auth/reset-password/:token` | Mereset password dengan token | - |
-| GET | `/api/user/me` | Mendapatkan profil pengguna saat ini | JWT |
-| PUT | `/api/user/me/change-password` | Mengubah password pengguna | JWT, CSRF |
-| DELETE | `/api/user/me` | Menghapus akun pengguna | JWT, CSRF |
-| GET | `/api/admin/users` | Mendapatkan semua data pengguna | JWT, Admin |
+| Method | Endpoint | Description | Protection |
+|--------|----------|-------------|------------|
+| POST | `/api/auth/register` | Register new user & send OTP | - |
+| POST | `/api/auth/verify-otp` | Verify OTP & activate account | - |
+| POST | `/api/auth/login` | Login user & create session cookie | - |
+| POST | `/api/auth/logout` | Logout user & remove session cookie | - |
+| POST | `/api/auth/forgot-password` | Send password reset email | - |
+| POST | `/api/auth/reset-password/:token` | Reset password with token | - |
+| GET | `/api/user/me` | Get current user profile | JWT |
+| PUT | `/api/user/me/change-password` | Change user password | JWT, CSRF |
+| DELETE | `/api/user/me` | Delete user account | JWT, CSRF |
+| GET | `/api/admin/users` | Get all user data | JWT, Admin |
 
 ---
 
-## 📄 Lisensi
+## 📄 License
 
-Proyek ini dilisensikan di bawah Lisensi MIT.
+This project is licensed under the MIT License.
