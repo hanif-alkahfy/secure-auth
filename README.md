@@ -9,7 +9,7 @@ A robust and production-ready backend blueprint for modern authentication system
 
 ---
 
-## ✅ Implemented Features
+## ✅ Features
 
 ### Secure User Onboarding
 - [x] User Registration with **OTP (One-Time Password)** delivery via Email
@@ -90,8 +90,8 @@ SENDGRID_API_KEY="SG.your_sendgrid_api_key"
 
 1. **Clone this repository:**
    ```bash
-   git clone https://github.com/YOUR_USERNAME/secure-auth-backend.git
-   cd secure-auth-backend
+   git clone https://github.com/hanif-alkahfy/secure-auth.git
+   cd secure-auth
    ```
 
 2. **Install all dependencies:**
